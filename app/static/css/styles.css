@@ -353,7 +353,7 @@ img::-moz-selection {
 header.masthead {
   text-align: center;
   color: white;
-  background-image: url("https://images.pexels.com/photos/1414651/pexels-photo-1414651.jpeg");
+  background-image: url("../img/main.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;

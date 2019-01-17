@@ -16,6 +16,7 @@ app.config['pymongo_db'] = PyMongo(app)
 
 from app import routes, models, recipes, config, mongodb
 # import app
-if __name__ == '__main__':
-    app.run(debug=True)
+# print(__name__)
+# if __name__ == '__main__':
+#     app.run(debug=True)
 # mongodb.insert_recipe()

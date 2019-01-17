@@ -9,7 +9,7 @@ def remove_Recipes():
     mongo_db()[COLLECTION_NAME].remove()
     return
 
-def insert_recipe(recreate_db = False):
+def insert_recipe(record, cuisine, recreate_db = False ):
     """
         Inserts population data into database
         clears existing data if recreate_db = True
@@ -30,7 +30,10 @@ def insert_recipe(recreate_db = False):
         'cookingMinutes': 10,
         'image': 'https://hebbarskitchen.com/wp-content/uploads/mainPhotos/onion-tomato-chutney-recipe-tomato-onion-chutney-recipe-1.jpeg',
         'instructions': 'Instructionsfirstly, in a large tawa heat 1 tsp butter and saute 2 tbsp onion.',
-        'ingredients': ['1 tsp butter', '2 tbsp onion finely chopped', '1 cup palak / spinach finely chopped']
+        'ingredients': ['1 tsp butter', '2 tbsp onion finely chopped', '1 cup palak / spinach finely chopped'],
+        'cuisine': ['Indian'],
+        'type': ['main'],
+        'numofhits':10
         }
         # Insert only if place does not exist
         # if (mongo_db()['population']

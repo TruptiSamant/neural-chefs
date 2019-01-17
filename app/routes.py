@@ -24,7 +24,7 @@ def index():
             images = request.files.getlist("file") #convert multidict to dict
             print(f"Images: {images}")
             # Remove all the files
-            files = glob.glob(app.config['UPLOAD_FOLDER']+'/*')
+            files = glob.glob("app/" +app.config['UPLOAD_FOLDER']+'/*')
             # print(files)
             for f in files:
                 os.remove(f)
@@ -38,7 +38,7 @@ def index():
                 filenames.append(image.filename)
                 print(filenames)
 
-            predictions = my_pred.call_predict(filenames, "app/" + app.config['UPLOAD_FOLDER'])
+            predictions = my_pred.call_predict(filenames, "app/" +app.config['UPLOAD_FOLDER'])
 
         return jsonify({'result': 'success', 'predictions': predictions})
     else:
@@ -64,9 +64,7 @@ def find_recipe():
         cuisine = data['cuisine']
         #Get the links
         recipe_links = getLinksFromcsv(cuisine, ingredients)
-        # shuffle(recipe_links)
         # print(recipe_links)
-
         #fine the recepies
         recipes_list = getRecipes(recipe_links[0:3]);
         #if any recipe found retun success
@@ -78,6 +76,6 @@ def find_recipe():
 
 # ###########################################################################
 # ###########################################################################
-
+# print(__name__)
 # if __name__ == '__main__':
 #     app.run(debug=True)

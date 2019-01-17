@@ -4,6 +4,7 @@ import pandas as pd
 import os
 import glob
 import itertools
+from app import app
 # from boto.s3.connection import S3Connection
 
 def getAPIkeys():
@@ -158,6 +159,20 @@ def getLinksFromcsv(cuisine="Indian", ingredients=[]):
     print(recipe_links_list)
     return recipe_links_list
 # getLinksFromcsv('Italian', ['mushroom','corn','tomato'])
+#
+'''
+findRecipesDBorAPI()
+'''
+def findRecipesDBorAPI(cuisine, ingredients):
+    #Get the links
+    recipe_links = getLinksFromcsv(cuisine, ingredients)
+    # If cuisine name not present insert
+    if (mongo_db()['cuisine']
+                .find({"cuisine_name": cuisine})
+                .count() == 0):
+        print(f"inserted {cuisine}")
+        mongo_db()['cuisine'].insert({"cuisine_name":cuisine})
+    # for link in recipe_links:
 
 '''
 getdict()
