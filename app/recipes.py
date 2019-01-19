@@ -4,7 +4,7 @@ import pandas as pd
 import os
 import glob
 import itertools
-from app import app
+from app import app, config
 # from boto.s3.connection import S3Connection
 
 def getAPIkeys():
@@ -85,35 +85,33 @@ getRecipe : get the recipe and send it to the routes
 cuisine: string
 ingredients: list
 Return: Return the request'''
-def getRecipes(recipe_links):
+def getRecipes(cuisine, link):
 
-    recipe_list = []
     info = {}
-
     #make a API call and get the recipe
-    for link in recipe_links[0:3]:
-        result = getRecipeByUrl(link)
-        # print(result.json())
+    result = getRecipeByUrl(link)
+    # print(result.json())
 
-        if(result):
+    if(result):
         #store the information
-            try:
-                info = {'title': result.json()['title'],
-                        'sourceUrl': result.json()['sourceUrl'],
-                        'cookingMinutes': result.json()['cookingMinutes'],
-                        'preparationMinutes': result.json()['preparationMinutes'],
-                        'image': result.json()['image'],
-                        'instructions': result.json()['instructions'],
-                        'ingredients' : [key['originalString'] for key in result.json()['extendedIngredients']]
-                        }
-            except:
-                # pass
-                print("Recipe not found")
-
-            recipe_list.append(info)
-            # print(recipe_list)
-
-    return recipe_list
+        cuisines = result.json()['cuisines'] if result.json()['cuisines'] else [cuisine]
+        try:
+            info = {'title': result.json()['title'],
+                    'sourceUrl': result.json()['sourceUrl'],
+                    'cookingMinutes': result.json()['cookingMinutes'],
+                    'preparationMinutes': result.json()['preparationMinutes'],
+                    'image': result.json()['image'],
+                    'instructions': result.json()['instructions'],
+                    'ingredients' : [key['originalString'] for key in result.json()['extendedIngredients']],
+                    'servings': result.json()['servings'],
+                    'diets': result.json()['diets'],
+                    'cuisine': cuisines,
+                    'course' : course
+                    }
+        except:
+            # pass
+            print("Recipe not found")
+    return info
 
 '''
 getLinksFromcsv
@@ -161,7 +159,7 @@ def getLinksFromcsv(cuisine="Indian", ingredients=[]):
 # getLinksFromcsv('Italian', ['mushroom','corn','tomato'])
 #
 '''
-findRecipesDBorAPI()
+findRecipesDBorAPI() NOT USED
 '''
 def findRecipesDBorAPI(cuisine, ingredients):
     #Get the links
@@ -172,7 +170,13 @@ def findRecipesDBorAPI(cuisine, ingredients):
                 .count() == 0):
         print(f"inserted {cuisine}")
         mongo_db()['cuisine'].insert({"cuisine_name":cuisine})
-    # for link in recipe_links:
+
+    for link in recipe_links:
+        if (mongo_db()['recipes']
+                    .find({"sourceUrl": link})
+                    .count() == 0):
+            print(f"inserted {cuisine}")
+            mongo_db()['cuisine'].insert({"cuisine_name":cuisine})
 
 '''
 getdict()

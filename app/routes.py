@@ -14,6 +14,9 @@ from app import models, recipes
 app.config['UPLOAD_FOLDER'] = 'uploads'
 my_pred = models.PredictRawVeggies()
 
+def mongo_db() :
+    return app.config['pymongo_db'].db
+
 # # Define routes ###############################################################
 @app.route("/",  methods=['GET', 'POST'])
 def index():
@@ -43,13 +46,10 @@ def index():
         return jsonify({'result': 'success', 'predictions': predictions})
     else:
         # Get the cusines from the file list
-        cuisines_list = glob.glob("app/recipes/recipes.csv")
+        cuisines_list = [cuisine['cuisine_name'] for cuisine in mongo_db()['cuisine'].find({},{ "_id": 0, "cuisine_name": 1 })]
         print(cuisines_list)
-        cuisines_df = pd.read_csv(cuisines_list[0])
 
-        print(list(cuisines_df)[1:])
-
-    return render_template('index.html', cuisines = list(cuisines_df)[1:])
+    return render_template('index.html', cuisines = cuisines_list)
 
 #####################################################################################
 # Define routes ###############################################################
@@ -63,10 +63,11 @@ def find_recipe():
         ingredients = [word for line in data['ingredients'] for word in line.split()]
         cuisine = data['cuisine']
         #Get the links
-        recipe_links = getLinksFromcsv(cuisine, ingredients)
+        recipe_links = getRecipes(cuisine, ingredients)
         # print(recipe_links)
         #fine the recepies
-        recipes_list = getRecipes(recipe_links[0:3]);
+        recipes_list = [getRecipes(link) for link in recipe_links[0:3]]
+
         #if any recipe found retun success
         for recipe in recipes_list:
             if bool(recipe):

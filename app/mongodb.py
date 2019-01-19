@@ -1,4 +1,6 @@
-from app import app
+from app import app, recipes
+import pandas as pd
+import os
 
 COLLECTION_NAME = 'recipes'
 
@@ -49,3 +51,68 @@ def insert_recipe(record, cuisine, recreate_db = False ):
         print("Inserted record please check ...")
     except Exception as e:
         print(e)
+
+
+# InsertRecipes in to DB
+def insertRecipe(cuisine):
+    #Get the links
+    df = pd.read_csv(os.path.join('app', 'recipes', cuisine + '.csv'), skipinitialspace=True)
+    # If cuisine name not present insert
+    if (mongo_db()['cuisine']
+                .find({"cuisine_name": cuisine})
+                .count() == 0):
+        print(f"inserted {cuisine}")
+        mongo_db()['cuisine'].insert({"cuisine_name":cuisine})
+
+
+    # Iterate  through DataFrame and get recipe for each link from spoonacular
+    for index, row in df.iterrows():
+        if (mongo_db()['recipes']
+                    .find({"sourceUrl": row['link']})
+                    .count() == 0):
+            print(f"inserted course:{row['course']} link:{row['link']}")
+            # return
+
+            result = recipes.getRecipeByUrl(row['link'])
+            # print(result.json())
+
+            if(result):
+                #store the information
+                cuisines = result.json()['cuisines'] if result.json()['cuisines'] else [cuisine]
+                try:
+                    info = {'title': result.json()['title'],
+                            'sourceUrl': result.json()['sourceUrl'],
+                            'cookingMinutes': result.json()['cookingMinutes'],
+                            'preparationMinutes': result.json()['preparationMinutes'],
+                            'image': result.json()['image'],
+                            'instructions': result.json()['instructions'],
+                            'ingredients' : [{"aisle": key['aisle'],"originalString": key['originalString']} for key in result.json()['extendedIngredients']],
+                            'servings': result.json()['servings'],
+                            'diets': result.json()['diets'],
+                            'cuisine': cuisines,
+                            'course' : row['course']
+                            }
+                    print(info['title'])
+                    mongo_db()['recipes'].insert(info)
+                except Exception as e:
+                    # pass
+                    print(e)
+        else:
+            print("All recipes are present")
+
+
+def selectRecipes():
+
+    results = mongo_db()['recipes'].find({
+            '$and': [
+            {'cuisine':'Indian'},
+            {'ingredients.originalString' :{'$regex' : 'bread', '$options' : 'i'}}
+            ]
+            })
+
+    for result in results:
+        print(result['title'])
+
+# selectRecipes()
+
+# insertRecipe("Vegetarian")
