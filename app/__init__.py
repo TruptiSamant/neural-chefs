@@ -1,11 +1,15 @@
 from flask import Flask
 from flask_pymongo import PyMongo
 import os
+from app import  config
 
 app = Flask(__name__)
 
-#
-app.config["MONGO_URI"] = 'mongodb://trupti_samant:Ishaadi02@ds257314.mlab.com:57314/neuralchefs'
+#get name and password
+name = os.environ.get('name') if os.environ.get('name') else config.name
+password = os.environ.get('password') if os.environ.get('password') else config.password
+
+app.config["MONGO_URI"] = 'mongodb://'+ name + ':' + password + '@ds257314.mlab.com:57314/neuralchefs'
 # app.config["MONGO_URI"] = 'mongodb://joe_reynolds:op3nupd4n@ds155903.mlab.com:55903/heroku_j29mjxk2'
 # Set base directory ##################################################
 app.config['basedir'] = os.path.abspath(os.path.dirname(__file__))

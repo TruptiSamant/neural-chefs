@@ -91,7 +91,7 @@ class PredictRawVeggies:
             # if the prediction is high then only senf the value
             match_found = False
             for pred_value, pred in zip_pred:
-                print(f"Prediction: {pred_value} name {pred}")
+                # print(f"Prediction: {pred_value} name {pred}")
                 if (pred_value > 0.75):
                     match_found = True
                     predictions.append((image_name, pred))

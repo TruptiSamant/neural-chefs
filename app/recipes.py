@@ -154,7 +154,7 @@ def getLinksFromcsv(cuisine="Indian", ingredients=[]):
 
         recipe_links_list = [x for x in itertools.chain.from_iterable(itertools.zip_longest(recipe_links_list,new_list)) if x]
 
-    print(recipe_links_list)
+    # print(recipe_links_list)
     return recipe_links_list
 # getLinksFromcsv('Italian', ['mushroom','corn','tomato'])
 #

@@ -8,7 +8,7 @@ import pandas as pd
 # from recipes import getRecipes, getdict, getLinksFromcsv
 from random import shuffle
 from app import app
-from app import models, recipes
+from app import models, recipes, mongodb
 
 # app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -63,11 +63,9 @@ def find_recipe():
         ingredients = [word for line in data['ingredients'] for word in line.split()]
         cuisine = data['cuisine']
         #Get the links
-        recipe_links = getRecipes(cuisine, ingredients)
+        recipes_list = mongodb.selectRecipes(cuisine, ingredients)
         # print(recipe_links)
-        #fine the recepies
-        recipes_list = [getRecipes(link) for link in recipe_links[0:3]]
-
+        #
         #if any recipe found retun success
         for recipe in recipes_list:
             if bool(recipe):

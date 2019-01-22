@@ -1,6 +1,7 @@
 from app import app, recipes
 import pandas as pd
 import os
+import re
 
 COLLECTION_NAME = 'recipes'
 
@@ -89,7 +90,7 @@ def insertRecipe(cuisine):
                             'ingredients' : [{"aisle": key['aisle'],"originalString": key['originalString']} for key in result.json()['extendedIngredients']],
                             'servings': result.json()['servings'],
                             'diets': result.json()['diets'],
-                            'cuisine': cuisines,
+                            'cuisine': [cuisine.lower() for cuisine in cuisines],
                             'course' : row['course']
                             }
                     print(info['title'])
@@ -101,18 +102,42 @@ def insertRecipe(cuisine):
             print("All recipes are present")
 
 
-def selectRecipes():
+# Selects the recipes and send it to flask app
+# #returns a list
+def selectRecipes(cuisine, ingredients):
+    recipes = []
 
-    results = mongo_db()['recipes'].find({
-            '$and': [
-            {'cuisine':'Indian'},
-            {'ingredients.originalString' :{'$regex' : 'bread', '$options' : 'i'}}
-            ]
-            })
+    for ingredient in ingredients:
+        results = mongo_db()['recipes'].find({
+                '$and': [
+                {'cuisine': re.compile(cuisine, re.IGNORECASE)},
+                {'ingredients.originalString' :{'$regex' : ingredient, '$options' : 'i'}}
+                ]
+                })
 
-    for result in results:
-        print(result['title'])
+        for result in results:
+            info = {'title': result['title'],
+                    'sourceUrl': result['sourceUrl'],
+                    'cookingMinutes': result['cookingMinutes'],
+                    'preparationMinutes': result['preparationMinutes'],
+                    'image': result['image'],
+                    'instructions': result['instructions'],
+                    'ingredients' : [key['originalString'] for key in result['ingredients']],
+                    'servings': result['servings'],
+                    'diets': result['diets'],
+                    # 'cuisine': [cuisine.lower() for cuisine in cuisines],
+                    'course' : result['course']
+                    }
+            recipes.append(info)
+            # print(result['title'])
 
-# selectRecipes()
+    recipes1 = [i for n, i in enumerate(recipes) if i not in recipes[n + 1:]]
 
-# insertRecipe("Vegetarian")
+    for r in recipes1:
+        print(r['title'])
+
+    return recipes1
+
+# selectRecipes('italian', ['tomato', 'Spinach'])
+
+# insertRecipe("Italian")
