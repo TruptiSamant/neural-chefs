@@ -62,6 +62,7 @@ def find_recipe():
         data = request.get_json()
         ingredients = [word for line in data['ingredients'] for word in line.split()]
         cuisine = data['cuisine']
+        print(f'cuisine {cuisine}')
         #Get the links
         recipes_list = mongodb.selectRecipes(cuisine, ingredients)
         # print(recipe_links)

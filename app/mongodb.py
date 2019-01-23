@@ -91,7 +91,8 @@ def insertRecipe(cuisine):
                             'servings': result.json()['servings'],
                             'diets': result.json()['diets'],
                             'cuisine': [cuisine.lower() for cuisine in cuisines],
-                            'course' : row['course']
+                            'course' : row['course'],
+                            'nutrition': row['nutrition']
                             }
                     print(info['title'])
                     mongo_db()['recipes'].insert(info)
@@ -108,14 +109,23 @@ def selectRecipes(cuisine, ingredients):
     recipes = []
 
     for ingredient in ingredients:
-        results = mongo_db()['recipes'].find({
-                '$and': [
-                {'cuisine': re.compile(cuisine, re.IGNORECASE)},
-                {'ingredients.originalString' :{'$regex' : ingredient, '$options' : 'i'}}
-                ]
-                })
+        if (cuisine == ""):
+            print(f"cuisine is empty {ingredients}")
+            results = mongo_db()['recipes'].find({'ingredients.originalString' :{'$regex' : ingredient, '$options' : 'i'}})
+        else:
+            results = mongo_db()['recipes'].find({
+                    '$and': [
+                    {'cuisine': {"$in": [re.compile(cuisine, re.IGNORECASE)]}},
+                    {'ingredients.originalString' :{'$regex' : ingredient, '$options' : 'i'}}
+                    ]
+                    })
+
 
         for result in results:
+            nutrition = ""
+            if "nutrition" in result:
+                nutrition = result['nutrition']
+
             info = {'title': result['title'],
                     'sourceUrl': result['sourceUrl'],
                     'cookingMinutes': result['cookingMinutes'],
@@ -125,6 +135,7 @@ def selectRecipes(cuisine, ingredients):
                     'ingredients' : [key['originalString'] for key in result['ingredients']],
                     'servings': result['servings'],
                     'diets': result['diets'],
+                    'nutrition' : nutrition,
                     # 'cuisine': [cuisine.lower() for cuisine in cuisines],
                     'course' : result['course']
                     }
@@ -138,6 +149,6 @@ def selectRecipes(cuisine, ingredients):
 
     return recipes1
 
-# selectRecipes('italian', ['tomato', 'Spinach'])
+# selectRecipes('', ['Mango'])
 
-# insertRecipe("Italian")
+# insertRecipe("Indian")

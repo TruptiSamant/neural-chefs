@@ -9,7 +9,9 @@
                     </div>
                     <div class="caption card-body">
                         <h4 class="group card-title inner list-group-item-heading">{{object.title}}</h4>
-                        <p class="groupinner">servings: {{object.servings}}</p>
+                        <p class="groupinner text-center">Servings: {{object.servings}}</p>
+                        <p class="groupinner text-center">{{object.course}}</p>
+                        <!-- <p class="groupinner text-center">{{object.nutrition}}</p> -->
                         <h6 class="groupinner text-center">Ingredients</h6>
                         {% for ingredient in object.ingredients %}
                             <p class="groupinner ">{{ingredient}}</p>
