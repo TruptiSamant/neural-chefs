@@ -125,6 +125,7 @@ def selectRecipes(cuisine, ingredients):
             nutrition = ""
             if "nutrition" in result:
                 nutrition = result['nutrition']
+            print(f'nutrition {nutrition}')
 
             info = {'title': result['title'],
                     'sourceUrl': result['sourceUrl'],
@@ -149,6 +150,6 @@ def selectRecipes(cuisine, ingredients):
 
     return recipes1
 
-# selectRecipes('', ['Mango'])
+selectRecipes('', ['kiwi'])
 
 # insertRecipe("Indian")
