@@ -150,6 +150,6 @@ def selectRecipes(cuisine, ingredients):
 
     return recipes1
 
-selectRecipes('', ['kiwi'])
+# selectRecipes('', ['kiwi'])
 
-# insertRecipe("Indian")
+# insertRecipe("vegetarian")

@@ -84,17 +84,15 @@ class PredictRawVeggies:
             test_image = preprocess_input(test_image)
             # print(test_image)
             predict = self.model_final.predict(test_image)
-            # print(predict)
+
             zip_pred= zip(predict[0], self.labels)
-            # print(predict[0])
-            # print(self.labels)
+
             # if the prediction is high then only senf the value
             match_found = False
-            for pred_value, pred in zip_pred:
-                # print(f"Prediction: {pred_value} name {pred}")
-                if (pred_value > 0.2):
-                    match_found = True
-                    predictions.append((image_name, pred))
+            max_pred = max(zip_pred,key=lambda x:x[0])
+            if (max_pred[0] > 0.3):
+                match_found = True
+                predictions.append((image_name, max_pred[1]))
 
             if(not(match_found)):
                 predictions.append((image_name, ""))
