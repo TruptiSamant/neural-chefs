@@ -1,26 +1,68 @@
-course,link
-starter,https://hebbarskitchen.com/onion-pakoda-recipe-kanda-bhaji/
-starter,https://www.archanaskitchen.com/tomato-pickle-thakkali-thokku
-main,https://hebbarskitchen.com/onion-paratha-recipe-pyaz-ka-paratha/
-soup,https://hebbarskitchen.com/tomato-onion-rasam/
-starter,https://hebbarskitchen.com/spinach-corn-sandwich-recipe/
-main,https://hebbarskitchen.com/baby-corn-masala-recipe-baby-corn-gravy/
-starter,https://hebbarskitchen.com/paneer-popcorn-recipe-paneer-snacks/
-main,https://hebbarskitchen.com/corn-curry-recipe-sweet-corn-sabzi/
-soup,https://hebbarskitchen.com/tomato-shorba-recipe-tamatar-shorba/
-main,https://www.archanaskitchen.com/spicy-tomato-rice-tomato-pulihora-recipe
-main,https://www.archanaskitchen.com/tomato-kurma-recipe-thakkali-kurma-perfect-for-biryani-parotta
-main,https://www.archanaskitchen.com/kadai-broccoli-masala-recipe-broccoli-cooked-with-indian-spices
-main,https://www.archanaskitchen.com/stir-fried-potatoes-with-broccoli-recipe-aloo-broccoli-sabzi
-main,https://www.archanaskitchen.com/broccoli-and-vegetable-curry-recipe
-main,https://www.archanaskitchen.com/andhra-style-palak-kura-pappu-recipe-spinach-dal-recipe
-main,https://www.archanaskitchen.com/dal-palak-recipe-spinach-and-lentil-curry
-main,https://www.archanaskitchen.com/tamil-nadu-style-broccoli-poriyal-recipe-broccoli-stir-fry-recipe
-main,https://www.indianhealthyrecipes.com/broccoli-curry-recipe-indian-broccoli-stir-fry/
-main,https://www.sanjeevkapoor.com/recipe/Jeera-Broccoli.html
-starter,https://food.ndtv.com/recipe-pyazi-kebabs-171634
-main,https://www.sanjeevkapoor.com/recipe/Chilli-Mushroom-Fried-Rice.html
-starter,https://hebbarskitchen.com/tomato-upma-recipe-tomato-rava-upma/
-soup,https://hebbarskitchen.com/cream-tomato-soup-recipe-tomatoe-soup/
-starter,https://hebbarskitchen.com/palak-chaat-recipe-palak-pakoda-chaat/
-main,https://www.indianhealthyrecipes.com/broccoli-curry-recipe-indian-broccoli-stir-fry/
+course,link,nutrition
+Salad,https://www.yummly.com/recipe/Pomegranate-Raita-1435824,50 Cal
+Raita,https://www.yummly.com/recipe/Coriander-and-Pomegranate-Raita-1921830,
+Raita,https://www.yummly.com/recipe/Mint-and-Pomegranate-Raita-1352698,140 cal
+Dessert,https://www.yummly.com/recipe/Coconut-Pomegranate-Chocolate-Chia-Seed-Pudding-1009640,570 cal
+Dessert,https://www.yummly.com/recipe/Little-Pomegranate-Dessert-Cups-976300,70 Cal
+Dessert,https://www.yummly.com/recipe/Minute-Dessert_-Small-Greek-Yogurt-with-Chestnut-and-Pomegranate-Cream-767661,260 cal
+Dessert,https://www.yummly.com/recipe/Pomegranate-Chia-Seed-Pudding-1845198,420 cal
+Raita,https://www.yummly.com/recipe/Pomegranate-Curd-Pachadi-_Pomegranate-Thayir-Pachadi_-1188636,340 cal
+Raita,https://www.yummly.com/recipe/Pomegranate-Raita-1625394,170 cal
+main,https://www.yummly.com/recipe/Smokey-Eggplant-with-Garam-Masala-1322120,160 cal
+Drink,https://www.yummly.com/recipe/Pomegranate-lassi-recipe_-How-to-make-pomegranate-lassi-_-Anardana-lassi-1493770,
+Raita,https://www.yummly.com/recipe/Pomegranate-Coconut-Thayir-Pachadi-1293108,150 Cal
+Smoothie,https://www.yummly.com/recipe/Pomegranate-Yogurt-Smoothie-949997,330 Cal
+Smoothie,https://www.yummly.com/recipe/Pomegranate-Smoothie-2345641,70 Cal
+Smoothie,https://www.yummly.com/recipe/Wild-Blueberry-Pomegranate-Smoothie-2229650,220 Cal
+Smoothie,https://www.yummly.com/recipe/Blueberry-pomegranate-fruit-smoothie-297941,35 Cal
+Smoothie,https://www.yummly.com/recipe/Cranberry-Pomegranate-Smoothies-1829017,200 Cal
+Smoothie,https://www.yummly.com/recipe/Pomegranate-Citrus-Smoothie-981852,340 Cal
+Smoothie,https://www.yummly.com/recipe/Tropical-Pomegranate-Breakfast-Smoothie-2311108,160 Cal
+Smoothie,https://www.yummly.com/recipe/Pomegranate-Berry-Smoothie-999363,
+Smoothie,https://www.archanaskitchen.com/pomegranate-and-chia-seeds-yogurt-smoothie-recipe,
+Starter,https://www.archanaskitchen.com/anar-aloo-pakora-recipe-dry-pomegranate-potato-pakora-in-hindi,
+Starter,https://www.archanaskitchen.com/grilled-paneer-mint-salad-recipe-with-pickled-onions-pomegranates,
+Starter,https://www.archanaskitchen.com/nimki-aloo-anardana-curry-recipe-potato-and-nimki-curry,
+Main,https://www.indianhealthyrecipes.com/vegetable-pulao-recipe-easy-mixed-veg-and-soya-chunks-pulav/,1855 Cal
+Main,https://www.indianhealthyrecipes.com/pudina-rice-recipe-pudina-rice/,482 Cal
+Starter,https://www.indianhealthyrecipes.com/coconut-chutney-recipe-idli-dosa-chutney/,77 cal
+Starter,https://www.indianhealthyrecipes.com/pudina-chutney-recipe-idli-dosa-vada/,77 cal
+Dessert,https://www.indianhealthyrecipes.com/coconut-ladoo-recipe-coconut-laddu/,111 Cal
+soup,https://www.vegrecipesofindia.com/coconut-milk-rasam-recipe/,
+main,https://www.vegrecipesofindia.com/kerala-vegetable-stew-recipe/,
+main,https://www.vegrecipesofindia.com/carrot-poriyal-recipe/,
+main,https://www.vegrecipesofindia.com/hotel-style-veg-kurma-recipe/,
+main,https://www.vegrecipesofindia.com/cabbage-bhaji-recipe-gobi-sabzi/,
+main,https://www.vegrecipesofindia.com/poricha-kuzhambu-recipe/,
+main,https://www.vegrecipesofindia.com/tomato-bhaji-recipe/,
+main,https://www.vegrecipesofindia.com/beetroot-bhaji-recipe/,
+main,https://www.vegrecipesofindia.com/pumpkin-bhaji-recipe-kaddu-ki-sabzi/,
+main,https://www.vegrecipesofindia.com/kerala-parippu-curry-recipe/,
+main,https://www.vegrecipesofindia.com/olan-recipe/,
+main,https://www.vegrecipesofindia.com/chana-dal-payasam-recipe/,
+main,https://www.vegrecipesofindia.com/coconut-sweets-recipes/,
+main,https://www.vegrecipesofindia.com/pineapple-payasam-recipe/,
+Dessert,https://www.vegrecipesofindia.com/narkel-naru-recipe/,
+Dessert,https://www.vegrecipesofindia.com/7-cup-barfi-recipe/,
+Dessert,https://www.vegrecipesofindia.com/baath-cake-recipe/,
+Dessert,https://www.vegrecipesofindia.com/easy-mango-ice-cream-recipe/,
+Dessert,https://www.vegrecipesofindia.com/strawberry-milkshake-recipe/,
+Dessert,https://www.vegrecipesofindia.com/eggless-strawberry-cream-cake-recipe/,
+Dessert,https://www.vegrecipesofindia.com/eggless-strawberry-cream-cake-recipe/,
+Dessert,https://www.vegrecipesofindia.com/vegan-strawberry-shortcake/,
+Dessert,https://www.vegrecipesofindia.com/strawberry-jam-recipe-strawberry-recipes/,
+Dessert,https://www.vegrecipesofindia.com/eggless-strawberry-mousse-recipe/,
+Dessert,https://www.vegrecipesofindia.com/strawberry-cream-recipe/,
+Drink,https://www.vegrecipesofindia.com/strawberry-lassi-recipe-lassi-recipes/,
+Smoothie,https://www.vegrecipesofindia.com/strawberry-smoothie-recipe/,
+Drink,https://www.vegrecipesofindia.com/strawberry-falooda-recipe-deconstructed/,
+Drink,https://www.vegrecipesofindia.com/strawberry-almond-milkshake/,
+Drink,https://www.sailusfood.com/strawberry-phirni-recipe/,
+Dessert,https://spicesnflavors.com/strawberry-peda-easy-indian-recipe/,
+main,https://www.foodnetwork.com/recipes/aarti-sequeira/saag-paneer-spinach-with-indian-cheese-recipe-1927603,
+main,https://www.saveur.com/article/recipes/palakoora-vepadu-andhra-style-sauteed-spinach,
+main,https://www.cookwithmanali.com/palak-paneer/,
+main,https://www.errenskitchen.com/sag-bahji-spinach-curry/,
+main,http://www.chewoutloud.com/2016/05/19/easy-indian-creamed-spinach/,
+main,http://maunikagowardhan.co.uk/cook-in-a-curry/tamilian-spinach-poriyal/,
+main,https://cookilicious.com/southindian/south-indian-spinach-lentils-keerai-kootu/,

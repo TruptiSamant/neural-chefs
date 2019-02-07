@@ -150,6 +150,27 @@ def selectRecipes(cuisine, ingredients):
 
     return recipes1
 
+
+def update():
+    myquery = { "cuisine_name": "Maxican" }
+    newvalues = { "$set": { "cuisine_name": "Mexican" } }
+    mongo_db()['cuisine'].update_one(myquery, newvalues)
+
+    myquery = { "cuisine_name": "Fruits" }
+    newvalues = { "$set": { "cuisine_name": "Drinks" } }
+    mongo_db()['cuisine'].update_one(myquery, newvalues)
+
+    myquery = { "course": "Fruits" }
+    newvalues = { "$set": { "course": "Drinks" } }
+    mongo_db()['recipes'].update_one(myquery, newvalues)
+
+def delete():
+    myquery = { "cuisine_name": "vegetarian" }
+    mongo_db()['cuisine'].delete_one(myquery)
+
+
+# update()
+# delete()
 # selectRecipes('', ['kiwi'])
 
-# insertRecipe("vegetarian")
+insertRecipe("Vegetarian")
