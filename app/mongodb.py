@@ -2,6 +2,7 @@ from app import app, recipes
 import pandas as pd
 import os
 import re
+from random import shuffle
 
 COLLECTION_NAME = 'recipes'
 
@@ -142,8 +143,9 @@ def selectRecipes(cuisine, ingredients):
                     }
             recipes.append(info)
             # print(result['title'])
-
+    # recipes = list(set(recipes))
     recipes1 = [i for n, i in enumerate(recipes) if i not in recipes[n + 1:]]
+    shuffle(recipes1)
 
     for r in recipes1:
         print(r['title'])
@@ -173,4 +175,4 @@ def delete():
 # delete()
 # selectRecipes('', ['kiwi'])
 
-insertRecipe("Vegetarian")
+# insertRecipe("Vegetarian")
