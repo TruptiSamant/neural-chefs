@@ -158,12 +158,12 @@ def update():
     newvalues = { "$set": { "cuisine_name": "Mexican" } }
     mongo_db()['cuisine'].update_one(myquery, newvalues)
 
-    myquery = { "cuisine_name": "Fruits" }
-    newvalues = { "$set": { "cuisine_name": "Drinks" } }
+    myquery = { "cuisine_name": "Drinks" }
+    newvalues = { "$set": { "cuisine_name": "Beverages" } }
     mongo_db()['cuisine'].update_one(myquery, newvalues)
 
-    myquery = { "course": "Fruits" }
-    newvalues = { "$set": { "course": "Drinks" } }
+    myquery = { "course": "Drinks" }
+    newvalues = { "$set": { "course": "Beverages" } }
     mongo_db()['recipes'].update_one(myquery, newvalues)
 
 def delete():
@@ -171,7 +171,7 @@ def delete():
     mongo_db()['cuisine'].delete_one(myquery)
 
 
-# update()
+update()
 # delete()
 # selectRecipes('', ['kiwi'])
 
