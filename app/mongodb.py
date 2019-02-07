@@ -171,7 +171,7 @@ def delete():
     mongo_db()['cuisine'].delete_one(myquery)
 
 
-update()
+# update()
 # delete()
 # selectRecipes('', ['kiwi'])
 
